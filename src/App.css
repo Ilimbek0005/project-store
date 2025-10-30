@@ -1,38 +1,261 @@
-.App {
-  text-align: center;
+/* --- RESET AND UTILITIES --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* --- HEADER STYLES --- */
+.header-top {
+  background-color: #175294;
+  padding: 10px 0;
+}
+
+.header-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.logo {
+  height: 35px;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  gap: 30px;
+  flex-grow: 1;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #ffd700;
+}
+
+.contact-search {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.phone-number {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.search-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: white;
+}
+
+/* --- HERO SECTION STYLES --- */
+.hero {
+  min-height: 550px;
+  padding: 100px 15px 150px 15px;
+  position: relative;
+  color: #333;
+}
+
+.hero-content {
+  max-width: 500px;
+  padding-top: 50px;
+  padding-left: 70px; /* текст сдвинут чуть вправо от левого края */
+  z-index: 2;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #1264A6;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.hero-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.hero-features li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.hero-features li .dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #007bff;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.order-btn {
+  background-color: #007bff;
   color: white;
+  border: 1px solid #007bff;
+  padding: 10px 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.order-btn:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 800px;
+  height: auto;
+  z-index: 1;
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+  background-color: #175294;
+  color: white;
+  padding: 20px 0;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer img {
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.footer nav a:hover {
+  color: #ffd700;
+}
+
+.footer div p {
+  margin: 5px 0;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+  .main-nav {
+    gap: 15px;
+    flex-grow: 0;
   }
-  to {
-    transform: rotate(360deg);
+  .hero-content {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-nav {
+    justify-content: center;
+    order: 3;
+    margin: 15px 0;
+  }
+  .contact-search {
+    order: 2;
+  }
+  .phone-number {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 50px 15px;
+  }
+  .hero-content {
+    max-width: 100%;
+    padding-left: 20px; /* чуть меньше на мобильных */
+  }
+
+  .footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer nav {
+    margin: 15px 0;
   }
 }
